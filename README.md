@@ -137,9 +137,9 @@ API (PUT usuários enriquecidos)
 ---
 
 ## 🧾 **Conclusão**
-Este projeto demonstra a construção de um pipeline ETL funcional e realista, integrando dados estruturados, APIs REST e Inteligência Artificial generativa.
+Este projeto demonstra a construção de um pipeline ETL funcional e realista, integrando dados estruturados, APIs REST e Inteligência Artificial Generativa.
 
-A abordagem adotada reflete práticas utilizadas em ambientes profissionais de dados, com foco em clareza, modularização e aplicabilidade prática.
+A abordagem adotada reflete práticas utilizadas em ambientes profissionais de dados, com foco em clareza, organização e aplicabilidade prática.
 
 
 
