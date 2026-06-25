@@ -3,7 +3,7 @@
 ## 📖 **Visão Geral**
 Este projeto implementa um **pipeline ETL** **(Extract, Transform, Load)** completo, simulando o funcionamento de um **aplicativo de hábitos pessoais**.
 
-A solução integra dados provenientes de uma **API REST**, realiza **enriquecimento com Inteligência Artificial generativa** e carrega os dados transformados de volta na API.
+A solução integra dados provenientes de uma API REST, realiza o **enriquecimento dessas informações com Inteligência Artificial Generativa** e carrega os dados transformados de volta para a API.
 
 O objetivo é demonstrar, de forma prática, como pipelines de dados podem ser estruturados em cenários reais, combinando **engenharia de dados**, **consumo de APIs** e **IA aplicada**.
 
