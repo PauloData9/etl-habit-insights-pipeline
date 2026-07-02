@@ -105,6 +105,29 @@ Carga dos dados enriquecidos na API (PUT)
 
 ---
 
+## Exemplo de dado enriquecido
+
+Antes da etapa de transformação, o usuário possuía apenas informações relacionadas ao hábito, frequência e objetivo. Após o enriquecimento com IA Generativa, um insight personalizado é incorporado ao registro antes da atualização na API.
+
+```json
+{
+  "id": "1",
+  "name": "Paulo",
+  "primary_habit": "Exercício físico",
+  "frequency_per_week": 3,
+  "goal": "Criar consistência",
+  "insights": [
+    {
+      "habit": "Exercício físico",
+      "message": "Agende seus treinos como compromissos e não falhe! Marque no calendário e cumpra como prioridade.",
+      "frequency_per_week": 3
+    }
+  ]
+}
+```
+
+---
+
 ## Tecnologias utilizadas
 
 - Python
