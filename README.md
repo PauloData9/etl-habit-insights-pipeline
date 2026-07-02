@@ -1,146 +1,149 @@
-# 📌 **Pipeline ETL com IA Generativa — App de Hábitos**
+# ETL Habit Insights Pipeline
 
-## 📖 **Visão Geral**
-Este projeto implementa um **pipeline ETL** **(Extract, Transform, Load)** completo, simulando o funcionamento de um **aplicativo de hábitos pessoais**.
+Pipeline ETL desenvolvido em Python para extrair dados de uma API REST, enriquecê-los com Inteligência Artificial Generativa e persistir as informações transformadas de volta à aplicação.
 
-A solução integra dados provenientes de uma API REST, realiza o **enriquecimento dessas informações com Inteligência Artificial Generativa** e carrega os dados transformados de volta para a API.
+**Status**: Concluído
 
-O objetivo é demonstrar, de forma prática, como pipelines de dados podem ser estruturados em cenários reais, combinando **engenharia de dados**, **consumo de APIs** e **IA aplicada**.
+**Tipo de projeto**: Pipeline ETL
 
----
+**Domínio**: Aplicativo de Hábitos (cenário fictício)
 
-## 🎯 **Contexto do Problema**
-Aplicativos de hábitos dependem de dados comportamentais para fornecer recomendações personalizadas aos usuários.
+**Ferramenta principal**: Python
 
-Neste projeto, cada usuário possui informações como:
-
-- hábito principal
-- frequência semanal
-- objetivo pessoal
-
-A partir desses dados, um modelo de linguagem é utilizado para gerar **insights personalizados**, simulando recomendações inteligentes dentro do aplicativo.
+**Objetivo**: Automatizar a extração, enriquecimento e atualização de dados de usuários por meio de um pipeline ETL integrado à IA Generativa.
 
 ---
 
-## 🏗️ **Arquitetura do Pipeline ETL**
-🔹 **Etapa 1 — Extract (CSV)**
+## Sobre o projeto
 
-- Leitura de um arquivo CSV contendo os IDs dos usuários
-- Conversão dos IDs para uma lista Python
-- Validação inicial dos dados de entrada
+Aplicativos voltados ao acompanhamento de hábitos dependem da qualidade dos dados para oferecer experiências personalizadas aos usuários.
 
-🔹 **Etapa 2 — Extract (API)**
+Neste projeto foi desenvolvido um pipeline ETL completo capaz de extrair informações de uma API REST, enriquecê-las automaticamente utilizando Inteligência Artificial Generativa e atualizar os registros na própria API.
 
-- Consulta dos dados completos de cada usuário via API REST
-- Requisições HTTP GET utilizando os IDs do CSV
+O projeto simula um cenário real de engenharia de dados, demonstrando como diferentes tecnologias podem ser integradas para automatizar processos de tratamento e enriquecimento de dados.
+
+---
+
+## Contexto de negócio
+
+Aplicativos de hábitos armazenam informações sobre objetivos, frequência e comportamento dos usuários. Entretanto, esses dados isoladamente oferecem pouco valor se não forem transformados em informações úteis.
+
+Neste cenário, o pipeline automatiza a geração de recomendações personalizadas para cada usuário, agregando inteligência aos dados existentes sem necessidade de intervenção manual.
+
+---
+
+## Objetivo
+
+Desenvolver um pipeline ETL que permita:
+
+- extrair dados de usuários a partir de uma API REST;
+- integrar informações provenientes de um arquivo CSV;
+- enriquecer os dados utilizando Inteligência Artificial Generativa;
+- atualizar automaticamente os registros na API;
+- demonstrar a aplicação de boas práticas de engenharia de dados.
+
+---
+
+## Arquitetura do Pipeline
+
+```text
+CSV (IDs dos usuários)
+        │
+        ▼
+Extração dos dados via API REST (GET)
+        │
+        ▼
+Transformação com IA Generativa
+(Geração de insights personalizados)
+        │
+        ▼
+Carga dos dados enriquecidos na API (PUT)
+```
+
+---
+
+## Capacidades do pipeline
+
+- Extração de dados a partir de arquivo CSV
+- Consumo de API REST
+- Processamento de dados em JSON
+- Enriquecimento de informações com IA Generativa
+- Atualização automática dos registros na API
+- Estrutura modular baseada nas etapas do ETL
+- Separação entre Extract, Transform e Load
+
+---
+
+## Principais etapas
+
+### Extract
+
+- Leitura dos IDs dos usuários a partir de um arquivo CSV
+- Consulta dos dados completos de cada usuário via API REST por meio de requisições HTTP GET
 - Filtragem automática de usuários inválidos
 
-🔹 **Etapa 3 — Transform**
+### Transform
 
-- Enriquecimento dos dados com IA generativa
-- Geração de insights personalizados com base:
-	- no hábito principal
-	- na frequência semanal
-- Inserção estruturada dos insights no objeto do usuário
+- Geração automática de insights personalizados utilizando GPT-4o-mini
+- Enriquecimento dos registros com recomendações baseadas nos hábitos de cada usuário
+- Estruturação das informações em formato JSON
 
-🔹 **Etapa 4 — Load**
+### Load
 
-- Persistência dos dados enriquecidos na API
-- Atualização individual de cada usuário via requisição HTTP PUT
-- Validação do sucesso da operação por código de status HTTP
+- Atualização individual dos usuários na API utilizando requisições HTTP PUT
+- Validação do sucesso das operações por meio dos códigos de resposta HTTP
 
 ---
 
-## 🔄 **Fluxo do Pipeline**
+## Principais resultados
 
-CSV (IDs)
-
-  ↓
-
-API (GET usuários)
-
-  ↓
-
-IA Generativa (insights personalizados)
-
-  ↓
-
-API (PUT usuários enriquecidos)
+- Automatização completa do fluxo ETL utilizando Python.
+- Integração entre arquivo CSV, API REST e Inteligência Artificial Generativa em um único pipeline.
+- Geração de recomendações personalizadas para cada usuário com base em seus hábitos e frequência semanal.
+- Persistência automática dos dados enriquecidos na API, simulando um ambiente de produção.
+- Organização do código em etapas independentes, favorecendo manutenção, reutilização e escalabilidade.
 
 ---
 
-## 🛠️ **Ferramentas Utilizadas**
-- **Python**
-- **Pandas** — leitura e manipulação de CSV
-- **Requests** — consumo de API REST
-- **OpenAI API** — geração de insights com IA
-- **JSON** — estrutura de dados
-- **MockAPI** — simulação de backend
+## Tecnologias utilizadas
+
+- Python
+- Pandas
+- Requests
+- OpenAI API
+- GPT-4o-mini
+- JSON
+- MockAPI
+- Jupyter Notebook
 
 ---
 
-## 🧠 **Decisões Técnicas**
-- A separação clara das etapas do ETL melhora a legibilidade e a manutenção do código.
-- O uso de funções pequenas e reutilizáveis facilita testes e evolução futura do pipeline.
-- A transformação com IA foi mantida independente da etapa de Load, seguindo boas práticas de engenharia de dados.
-- O domínio do problema foi adaptado para um contexto não bancário, garantindo originalidade em relação a exemplos acadêmicos.
+## Estrutura do projeto
+
+```text
+.
+├── notebook/
+│   └── projeto_etl.ipynb
+├── README.md
+└── LICENSE
+```
 
 ---
 
-## 📌 **Exemplo de Dado Enriquecido**
-{
+## Como executar
 
- "id": "1",
-
- "name": "Paulo",
-
- "primary\_habit": "Exercício físico",
-
- "frequency\_per\_week": 3,
-
- "goal": "Criar consistência",
-
- "insights": \[
-
-   {
-
-     "habit": "Exercício físico",
-
-     "message": "Defina dias fixos e trate o treino como compromisso.",
-
-     "frequency\_per\_week": 3
-
-   }
-
- ]
-
-}
+1. Criar uma API utilizando o MockAPI.
+2. Inserir os usuários iniciais.
+3. Criar um arquivo CSV contendo os IDs dos usuários.
+4. Configurar a chave da OpenAI.
+5. Executar o notebook do pipeline.
+6. Verificar os registros atualizados na API.
 
 ---
 
-## 🚀 **Como Executar o Projeto**
-- Criar uma API no MockAPI com o schema de usuários
-- Inserir usuários iniciais e obter seus IDs
-- Criar um arquivo CSV contendo os IDs
-- Executar o pipeline ETL em Python
-- Verificar os usuários atualizados na API
+## Autor
 
----
+**Paulo Ricardo Costa Mariano de Souza**
 
-## 📈 **Possíveis Evoluções**
-- Adicionar timestamps aos insights gerados
-- Implementar controle de erro e retentativas
-- Salvar logs do pipeline
-- Expandir para múltiplos hábitos por usuário
-- Armazenar histórico de insights
-
----
-
-## 🧾 **Conclusão**
-Este projeto demonstra a construção de um pipeline ETL funcional e realista, integrando dados estruturados, APIs REST e Inteligência Artificial Generativa.
-
-A abordagem adotada reflete práticas utilizadas em ambientes profissionais de dados, com foco em clareza, organização e aplicabilidade prática.
-
-
-
-
+- GitHub: https://github.com/PauloData9
+- LinkedIn: https://www.linkedin.com/in/paulo-ricardo-costa-mariano-de-souza-834585376
